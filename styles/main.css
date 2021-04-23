@@ -1,0 +1,156 @@
+/* General */
+body, html {
+  padding: 0px;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #DDDDE0;
+}
+
+body {
+  background-color: #171520;
+}
+
+div#app {
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
+div#card {
+  min-height: 100px;
+  width: 90%;
+  background-color: #262335;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.45);
+  box-shadow: 0px 0px 28px 0px rgba(0,0,0,0.45);
+  padding-left: 5%;
+  padding-right: 5%;
+  max-width: 500px;
+  margin-top: 50px;
+}
+
+div#card > .title {
+  color: #FEDE5D;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+div#card > .description {
+  text-align: center;
+  font-size: 1.3em;
+}
+
+table.permission-box {
+  background-color: #3D3651;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table.permission-box > thead {
+  background-color: #1F52D7;
+}
+
+table.permission-box > thead * {
+  height: 30px;
+  font-weight: bold;
+}
+
+table.permission-box tr {
+  height: 30px;
+}
+
+table.permission-box tr:nth-child(2) table,
+table.permission-box tr:nth-child(3) table {
+  width: 100%;
+}
+
+table.permission-box tr:nth-child(2) table > tbody > tr > td,
+table.permission-box tr:nth-child(3) table > tbody > tr > td {
+  border-color: #5C5A62;
+  border-width: 0px;
+  border-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.no-end-border {
+  border-right-width: 0px !important;
+}
+
+table.permission-box > tbody > tr:nth-child(4) td {
+  border-color: #5C5A62;
+  border-width: 0px;
+  border-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.command-box {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: #3D3651;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.command-box h3 {
+  color: #fEfEfE;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 0px;
+}
+
+.command-box .command {
+  background-color: #262335;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.command-box .command span:last-child {
+  margin-left: 10px;
+  color: #DDDDE0;
+}
+
+footer {
+  background-color: #0f0d14;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+footer a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #DDDDE0;
+}
+
+.github-badge-wrapper {
+  z-index: 10;
+  top: -15px;
+  left: -65px;
+  position: absolute;
+  width: 200px;
+  height: 70px;
+  background-color: white;
+  transform: rotate(-45deg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-top: 30px;
+}
+
+.github-badge-wrapper>a {
+  height: 100%;
+}
+
+.github-badge-wrapper .github-logo {
+  object-fit: contain;
+  height: 100%;
+}

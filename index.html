@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Jose Noriega" />
+
+  <title>Linux permission generator</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="github-badge-wrapper">
+    <a
+      href="https://github.com/JoseNoriegaa/linux-file-system-permission-generator"
+      target="_blank">
+      <img
+        class="github-logo"
+        src="assets/github-logo.png"
+        alt="Github logo"
+        title="Repository"
+      >
+    </a>
+  </div>
+
+  <div id="app">
+    <div id="card">
+      <h1 class="title">
+        Linux permission generator
+      </h1>
+
+      <p class="description">
+        A simple and easy way to generate your Linux File-system permissions.
+      </p>
+
+      <table class="permission-box" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>
+              Owner
+            </th>
+            <th>
+              Groups
+            </th>
+            <th>
+              Others
+            </th>
+          </tr>
+        </thead>
+        <body>
+          <tr align="center">
+            <td>
+              rwx
+            </td>
+            <td>
+              rwx
+            </td>
+            <td>
+              rwx
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <table cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr align="center">
+                    <td>
+                      {{ owner.r | bit }}
+                    </td>
+                    <td>
+                      {{ owner.w | bit }}
+                    </td>
+                    <td>
+                      {{ owner.x | bit }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+            <td>
+              <table cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr align="center">
+                    <td>
+                      {{ groups.r | bit }}
+                    </td>
+                    <td>
+                      {{ groups.w | bit }}
+                    </td>
+                    <td>
+                      {{ groups.x | bit }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+            <td>
+              <table cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr align="center">
+                    <td>
+                      {{ others.r | bit }}
+                    </td>
+                    <td>
+                      {{ others.w | bit }}
+                    </td>
+                    <td>
+                      {{ others.x | bit }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>
+              <table cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr align="center">
+                    <td>
+                      <input
+                        :disabled="Boolean(owner.r) && !owner.w && !owner.x"
+                        type="checkbox"
+                        title="Read"
+                        v-model="owner.r" />
+                    </td>
+                    <td>
+                      <input
+                        :disabled="Boolean(owner.w) && !owner.r && !owner.x"
+                        type="checkbox"
+                        title="Write"
+                        v-model="owner.w" />
+                    </td>
+                    <td>
+                      <input
+                        :disabled="Boolean(owner.x) && !owner.w && !owner.r"
+                        type="checkbox"
+                        title="Execute"
+                        v-model="owner.x" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+            <td>
+              <table cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr align="center">
+                    <td>
+                      <input type="checkbox" title="Read" v-model="groups.r" />
+                    </td>
+                    <td>
+                      <input type="checkbox" title="Write" v-model="groups.w" />
+                    </td>
+                    <td>
+                      <input type="checkbox" title="Execute" v-model="groups.x" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+            <td>
+              <table cellspacing="0" cellpadding="0">
+                <tbody>
+                  <tr align="center">
+                    <td>
+                      <input type="checkbox" title="Read" v-model="others.r" />
+                    </td>
+                    <td>
+                      <input type="checkbox" title="Write" v-model="others.w" />
+                    </td>
+                    <td>
+                      <input type="checkbox" title="Execute" v-model="others.x" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+
+          </tr>
+
+          <tr align="center">
+            <td>
+              {{ ownerPermission }}
+            </td>
+            <td>
+              {{ groupsPermission }}
+            </td>
+            <td>
+              {{ othersPermission }}
+            </td>
+          </tr>
+        </body>
+      </table>
+
+      <div class="command-box">
+        <h3>Command</h3>
+        <div class="command">
+          <span style="color: yellow">$</span>
+          <span>sudo chmod {{ permission }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <footer>
+    <a
+      rel="author"
+      href="https://github.com/JoseNoriegaa"
+      title="Homepage">
+      Made by Jose Noriega 🚀
+    </a>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
