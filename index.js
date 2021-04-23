@@ -26,21 +26,30 @@ const app = new Vue({
     },
   },
   computed: {
+    ownerOctal() {
+      return String(this.getBinaryAsOctal(this.owner));
+    },
+    groupsOctal() {
+      return String(this.getBinaryAsOctal(this.groups));
+    },
+    othersOctal() {
+      return String(this.getBinaryAsOctal(this.others));
+    },
     ownerPermission() {
-      return String(this.getBinaryAsDecimal(this.owner));
+      return String(this.getBinaryAsPermission(this.owner));
     },
     groupsPermission() {
-      return String(this.getBinaryAsDecimal(this.groups));
+      return String(this.getBinaryAsPermission(this.groups));
     },
     othersPermission() {
-      return String(this.getBinaryAsDecimal(this.others));
+      return String(this.getBinaryAsPermission(this.others));
     },
-    permission() {
-      return `${this.ownerPermission}${this.groupsPermission}${this.othersPermission}`;
+    fullOctal() {
+      return `${this.ownerOctal}${this.groupsOctal}${this.othersOctal}`;
     },
   },
   methods: {
-    getBinaryAsDecimal(object) {
+    getBinaryAsOctal(object) {
       let output = 0;
       if (object.x) {
         output += 1
@@ -55,5 +64,27 @@ const app = new Vue({
       }
       return output;
     },
+    getBinaryAsPermission(object) {
+      let output = '';
+      if (object.r) {
+        output += 'r'
+      } else {
+        output += '-'
+      }
+      
+      if (object.w) {
+        output += 'w'
+      } else {
+        output += '-'
+      }
+      
+      if (object.x) {
+        output += 'x'
+      } else {
+        output += '-'
+      }
+
+      return output;
+    }
   },
 });

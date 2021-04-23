@@ -50,13 +50,13 @@
         <body>
           <tr align="center">
             <td>
-              rwx
+              {{ ownerPermission }}
             </td>
             <td>
-              rwx
+              {{ groupsPermission }}
             </td>
             <td>
-              rwx
+              {{ othersPermission }}
             </td>
           </tr>
 
@@ -125,21 +125,18 @@
                   <tr align="center">
                     <td>
                       <input
-                        :disabled="Boolean(owner.r) && !owner.w && !owner.x"
                         type="checkbox"
                         title="Read"
                         v-model="owner.r" />
                     </td>
                     <td>
                       <input
-                        :disabled="Boolean(owner.w) && !owner.r && !owner.x"
                         type="checkbox"
                         title="Write"
                         v-model="owner.w" />
                     </td>
                     <td>
                       <input
-                        :disabled="Boolean(owner.x) && !owner.w && !owner.r"
                         type="checkbox"
                         title="Execute"
                         v-model="owner.x" />
@@ -189,13 +186,13 @@
 
           <tr align="center">
             <td>
-              {{ ownerPermission }}
+              {{ ownerOctal }}
             </td>
             <td>
-              {{ groupsPermission }}
+              {{ groupsOctal }}
             </td>
             <td>
-              {{ othersPermission }}
+              {{ othersOctal }}
             </td>
           </tr>
         </body>
@@ -205,7 +202,7 @@
         <h3>Command</h3>
         <div class="command">
           <span style="color: yellow">$</span>
-          <span>sudo chmod {{ permission }}</span>
+          <span>sudo chmod {{ fullOctal }}</span>
         </div>
       </div>
 
