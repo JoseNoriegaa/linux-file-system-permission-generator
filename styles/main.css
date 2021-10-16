@@ -6,6 +6,11 @@ body, html {
   color: #DDDDE0;
 }
 
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-color: #171520;
 }
@@ -27,6 +32,7 @@ div#card {
   padding-left: 5%;
   padding-right: 5%;
   max-width: 500px;
+  margin: 20px;
   margin-top: 50px;
 }
 
@@ -146,11 +152,68 @@ footer a {
   padding-top: 30px;
 }
 
-.github-badge-wrapper>a {
+.github-badge-wrapper > a {
   height: 100%;
 }
 
 .github-badge-wrapper .github-logo {
   object-fit: contain;
   height: 100%;
+}
+
+.badge-title {
+  display: none;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 750px) {
+  .github-badge-wrapper {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+    position: relative;
+    align-items: unset;
+    justify-content: unset;
+    padding-top: 0px;
+    width: auto;
+    padding: 5px 20px;
+    height: 30px;
+  }
+
+  .badge-title {
+    display: unset;
+    margin-left: 10px;
+  }
+
+  .github-badge-wrapper > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none !important;
+    color: #141414;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  div#card {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) and (max-height: 605px) {
+  footer {
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-height: 595px) {
+  footer {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 411px) {
+  footer {
+    position: relative;
+  }
 }
